@@ -1,4 +1,4 @@
-package com.example.tomatotimer.user;
+package com.example.tomatotimer.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
