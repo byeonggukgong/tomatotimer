@@ -1,10 +1,7 @@
-package com.example.tomatotimer.task;
+package com.example.tomatotimer.domain;
 
-import com.example.tomatotimer.user.User;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -14,7 +11,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Task {
 
     @Id

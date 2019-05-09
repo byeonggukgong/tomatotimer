@@ -1,6 +1,5 @@
-package com.example.tomatotimer.task;
+package com.example.tomatotimer.domain;
 
-import com.example.tomatotimer.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

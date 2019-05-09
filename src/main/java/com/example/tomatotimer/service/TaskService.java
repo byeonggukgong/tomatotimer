@@ -1,33 +1,30 @@
-package com.example.tomatotimer.task;
+package com.example.tomatotimer.service;
 
-import com.example.tomatotimer.user.User;
-import com.example.tomatotimer.user.UserRepository;
+import com.example.tomatotimer.domain.Task;
+import com.example.tomatotimer.domain.TaskRepository;
+import com.example.tomatotimer.domain.User;
+import com.example.tomatotimer.domain.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Service;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
-@RestController
+@Service
 @RequiredArgsConstructor
-public class TaskController {
+public class TaskService {
 
     private final UserRepository userRepository;
     private final TaskRepository taskRepository;
 
-    @GetMapping("/users/{userId}/tasks")
-    public List<Task> getTaskByUser(@PathVariable Long userId) {
+    public List<Task> getTaskByUser(Long userId) {
         return taskRepository.findByUser(
             userRepository.findById(userId)
                 .orElseThrow(RuntimeException::new));
     }
 
-    @GetMapping("/users/{userId}/tasks/{taskId}")
-    public Task getTaskByUserAndId(
-        @PathVariable Long userId, @PathVariable Long taskId) {
-
+    public Task getTaskByUserAndId(Long userId, Long taskId) {
         User user = userRepository.findById(userId)
             .orElseThrow(RuntimeException::new);
 
@@ -35,10 +32,7 @@ public class TaskController {
             .orElseThrow(RuntimeException::new);
     }
 
-    @PostMapping("/users/{userId}/tasks")
-    public Task createTask(
-        @PathVariable Long userId, @RequestBody @Valid Task newTask) {
-
+    public Task createTask(Long userId, Task newTask) {
         User user = userRepository.findById(userId)
             .orElseThrow(RuntimeException::new);
 
