@@ -23,6 +23,7 @@ dependencies {
     implementation 'org.webjars:jquery:3.4.0'
     implementation 'org.webjars:bootstrap:4.3.1'
     implementation 'org.springframework.boot:spring-boot-starter-mustache'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
