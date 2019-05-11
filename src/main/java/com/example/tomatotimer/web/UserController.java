@@ -1,6 +1,7 @@
 package com.example.tomatotimer.web;
 
 import com.example.tomatotimer.domain.User;
+import com.example.tomatotimer.dto.UserDto;
 import com.example.tomatotimer.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -27,8 +28,8 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public String createUser(@ModelAttribute @Valid User user) {
-        userService.createUser(user);
+    public String createUser(@ModelAttribute @Valid UserDto userDto) {
+        userService.createUser(userDto);
 
         return "redirect:/login";
     }
