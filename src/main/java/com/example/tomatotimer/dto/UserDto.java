@@ -18,7 +18,7 @@ public class UserDto {
 
     @NotBlank
     private String password;
-    
+
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 

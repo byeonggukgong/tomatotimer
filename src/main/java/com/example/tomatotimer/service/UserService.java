@@ -6,6 +6,7 @@ import com.example.tomatotimer.dto.UserDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Slf4j
@@ -16,6 +17,7 @@ public class UserService {
     private final UserRepository userRepository;
 
     private final ModelMapper modelMapper;
+    private final PasswordEncoder passwordEncoder;
 
     public User getUserbyId(Long userId) {
         return userRepository.findById(userId)
@@ -23,8 +25,9 @@ public class UserService {
     }
 
     public UserDto createUser(UserDto userDto) {
-        User user = userDto.toEntity();
-        User createdUser = userRepository.save(user);
+        userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
+
+        User createdUser = userRepository.save(userDto.toEntity());
 
         return modelMapper.map(createdUser, UserDto.class);
     }
