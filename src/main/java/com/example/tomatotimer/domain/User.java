@@ -20,6 +20,9 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @Column(nullable = false)
+    private String password;
+
     @JsonProperty("created_at")
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
@@ -31,7 +34,8 @@ public class User {
     private LocalDateTime updatedAt;
 
     @Builder
-    public User(String email) {
+    public User(String email, String password) {
         this.email = email;
+        this.password = password;
     }
 }

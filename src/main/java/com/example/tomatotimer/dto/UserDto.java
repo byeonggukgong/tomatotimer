@@ -16,17 +16,22 @@ public class UserDto {
     @NotBlank
     private String email;
 
+    @NotBlank
+    private String password;
+    
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     @Builder
-    public UserDto(String email) {
+    public UserDto(String email, String password) {
         this.email = email;
+        this.password = password;
     }
 
     public User toEntity() {
         return User.builder()
             .email(email)
+            .password(password)
             .build();
     }
 }
