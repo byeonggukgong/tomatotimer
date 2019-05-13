@@ -8,5 +8,17 @@
 
 * macOS Mojava
 * IntelliJ IDEA
-* Spring Boot 2 (Lombok, JPA, H2)
+  * Lombok
+  * GitToolBox
+  * Key Promoter X
+  * Material Theme UI (Dracula Theme)
+* Spring Boot 2
+  * Web
+  * Data JPA
+  * Security
+  * Mustache
+  * Lombok
+  * ModelMapper
+* Database
+  * H2
 * Java 8 (OpenJDK 1.8.0_202)
