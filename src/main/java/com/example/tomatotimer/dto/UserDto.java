@@ -3,7 +3,7 @@ package com.example.tomatotimer.dto;
 import com.example.tomatotimer.domain.User;
 import lombok.*;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 
 @Setter
@@ -13,10 +13,10 @@ public class UserDto {
 
     private Long id;
 
-    @NotBlank
+    @NotEmpty
     private String email;
 
-    @NotBlank
+    @NotEmpty
     private String password;
 
     private LocalDateTime createdAt;

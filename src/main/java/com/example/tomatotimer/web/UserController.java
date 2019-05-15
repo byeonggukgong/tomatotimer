@@ -1,6 +1,5 @@
 package com.example.tomatotimer.web;
 
-import com.example.tomatotimer.domain.User;
 import com.example.tomatotimer.dto.UserDto;
 import com.example.tomatotimer.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -18,18 +17,18 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/login")
-    public String login() {
+    public String logIn() {
         return "/users/login";
     }
 
     @GetMapping("/signup")
-    public String signup() {
+    public String signUp() {
         return "/users/signup";
     }
 
-    @PostMapping("/users")
-    public String createUser(@ModelAttribute @Valid UserDto userDto) {
-        userService.createUser(userDto);
+    @PostMapping("/signup")
+    public String signUp(@ModelAttribute @Valid UserDto userDto) {
+        userService.signUp(userDto);
 
         return "redirect:/login";
     }

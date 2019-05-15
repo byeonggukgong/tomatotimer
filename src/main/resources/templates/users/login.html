@@ -1,5 +1,16 @@
 {{>layout/header}}
 <div class="container">
     <h2>로그인</h2>
+    <form action="/login" method="post" name="user">
+        <div class="form-group">
+            <label for="inputEmail">이메일 주소</label>
+            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="이메일을 입력해주세요">
+        </div>
+        <div class="form-group">
+            <label for="inputPassword">비밀번호</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="비밀번호를 입력해주세요">
+        </div>
+        <button type="submit" class="btn btn-primary">로그인</button>
+    </form>
 </div>
 {{>layout/footer}}
