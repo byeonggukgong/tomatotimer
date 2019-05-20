@@ -4,6 +4,7 @@ import com.example.tomatotimer.domain.Task;
 import com.example.tomatotimer.domain.TaskRepository;
 import com.example.tomatotimer.domain.User;
 import com.example.tomatotimer.domain.UserRepository;
+import com.example.tomatotimer.dto.TaskDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -32,13 +33,13 @@ public class TaskService {
             .orElseThrow(RuntimeException::new);
     }
 
-    public Task createTask(Long userId, Task newTask) {
-        User user = userRepository.findById(userId)
+    public Task createTask(String email, TaskDto.CreateTask createTaskDto) {
+        User user = userRepository.findByEmail(email)
             .orElseThrow(RuntimeException::new);
 
         Task task = Task.builder()
             .user(user)
-            .content(newTask.getContent())
+            .content(createTaskDto.getContent())
             .build();
 
         return taskRepository.save(task);

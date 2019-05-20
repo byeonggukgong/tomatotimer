@@ -1,3 +1,14 @@
 {{>layout/header}}
 {{>layout/nav}}
+{{#isAuthenticated}}
+<div class="container">
+    <form action="/tasks" method="post" name="task">
+        <div class="form-group">
+            <label for="inputContent">할 일</label>
+            <input type="text" name="content" id="inputContent" class="form-control" placeholder="내용을 입력해주세요">
+        </div>
+        <button type="submit" class="btn btn-primary">할 일 만들기</button>
+    </form>
+</div>
+{{/isAuthenticated}}
 {{>layout/footer}}
