@@ -19,9 +19,9 @@ public class TaskService {
     private final UserRepository userRepository;
     private final TaskRepository taskRepository;
 
-    public List<Task> getTaskByUser(Long userId) {
+    public List<Task> getTasksByEmail(String email) {
         return taskRepository.findByUser(
-            userRepository.findById(userId)
+            userRepository.findByEmail(email)
                 .orElseThrow(RuntimeException::new));
     }
 

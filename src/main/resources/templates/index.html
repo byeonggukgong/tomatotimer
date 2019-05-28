@@ -9,6 +9,9 @@
         </div>
         <button type="submit" class="btn btn-primary">할 일 만들기</button>
     </form>
+    {{#tasks}}
+    {{.}}
+    {{/tasks}}
 </div>
 {{/isAuthenticated}}
 {{>layout/footer}}
